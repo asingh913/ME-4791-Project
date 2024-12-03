@@ -21,6 +21,7 @@ Ny = 1170 * 10^3 * 1.1; %N, A22, load * 1.1 for safety reasons
 l = 10; %m
 w = 0.5; %m
 bending = 0.05; %strain
+curvature = 2*bending*l/l^2;
 tensile = 0.002; %strain
 
 %initialize variables
@@ -36,7 +37,7 @@ t1 = 0.00001; %0 degree thickness, m
 t2 = 0.00001; %90 degree thickness, m
 
 %required stiffnesses
-D11 = Mx/bending; %required stiffness (based on bending and deflection)
+D11 = Mx/curvature; %required stiffness (based on bending and deflection)
 A22 = Ny/tensile; %required stiffness (based on tensile stress and deformation)
 
 %Get current A22 and D11
